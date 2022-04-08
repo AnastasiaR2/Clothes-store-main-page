@@ -11,16 +11,151 @@
     color: #bdbdbd;
   }
 
-.navbar-light .navbar-nav .nav-link:active, 
-.navbar-light .navbar-nav .nav-link:hover {
+  header .navbar-light .navbar-nav .nav-link:active, 
+  header .navbar-light .navbar-nav .nav-link:hover,
+  footer .navbar-light .navbar-nav .nav-link:active, 
+  footer .navbar-light .navbar-nav .nav-link:hover {
     color: black;
-}
+  }
 
   div.menu {
     padding: 1.5rem 0px;
   }
 
-@media (min-width:576px) {
+  div.menu .nav-link {
+    font-weight: bold;
+  }
+
+  div.menu .navbar-dark .navbar-nav .nav-link:active, 
+  div.menu .navbar-dark .navbar-nav .nav-link:hover {
+    color: white;
+  }
+
+  .menu {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-areas: 
+    "nav"
+    "photo"
+    "handbag"
+    "watch"
+    "shoes";
+  }
+
+  .menu > .navbar {
+    grid-area: nav;
+  }
+
+  .menu > img {
+    grid-area: photo;
+    margin-bottom: 1rem;
+  }
+
+  .handbag {
+    grid-area: handbag;
+    background-image: url(../images/handbag.jpg);
+    margin-bottom: 1rem;
+  }
+
+  .watch {
+    grid-area: watch;
+    background-image: url(../images/watch.jpg);
+    background-position: center;
+    margin-bottom: 1rem;
+  }
+
+  .shoes {
+    grid-area: shoes;
+    background-image: url(../images/shoes.jpg);
+    background-position: center;
+    margin-bottom: 1rem;
+  }
+
+  .handbag, .watch, .shoes {
+    padding: 2rem 0.8rem 0rem;
+    line-height: 0.8;
+    background-size: cover;
+  }
+
+  .handbag a, 
+  .watch a, 
+  .shoes  a {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+  }
+
+  .handbag p, 
+  .watch p, 
+  .shoes  p {
+    color: white;
+    font-weight: bold;
+    text-shadow: 0px 0px 1px black;
+  }
+
+  .handbag a:hover,
+  .handbag a:active,
+  .watch a:hover,
+  .watch a:active,
+  .shoes a:hover,
+  .shoes a:active {
+    text-decoration: underline;
+  }
+
+  .catalog {
+    display: grid;
+    gap: 1rem;
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .card {
+    border: none;
+    font-size: 0.8rem;
+  }
+
+  .card-text{
+    text-decoration: none;
+    color: black;
+  }
+
+  .card-text:hover{
+    text-decoration: underline;
+    color: black;
+  }
+
+  .card-body > button {
+    border: none;
+    background-color: #212529;
+    color: white;
+    padding: 10px 15px;
+  }
+
+  .card-body > button:hover {
+    background-color: #575757;
+  }
+
+  .info {
+    display: grid;
+    line-height: 0.7;
+    grid-template-columns: 1fr;
+  }
+
+  div.info > div:not(.info-phone) {
+    display: none;
+  }
+
+  footer .navbar-nav > h4 {
+    display: none;
+  }
+
+  footer.copyright > p {
+    margin-bottom: 0px;
+    padding: 12px;
+    font-size: 0.8rem;
+  }
+
+
+@media (min-width:768px) {
 
   header {
     padding: 1.5rem;
@@ -37,20 +172,115 @@
     padding-left: 0px;
   }
 
+  header .navbar-expand-lg .navbar-nav .nav-link {
+    padding-right: 1.5rem;
+    padding-left: 1.5rem;
+  }
+
   header .navbar-nav .nav-link:first-child{
-    padding: 0.5rem 1.5rem 0.5rem 0px;
+    padding-left: 0px;
   }
 
   header a.nav-link + a.nav-link {
     border-left: 1px solid lightgrey;
-    padding-right: 1.5rem;
-    padding-left: 1.5rem;
   }
 
   div.menu {
     padding: 3rem 1.5rem 1.5rem;
   }
 
+  div.menu .nav-link {
+    font-size: 1.3rem;
+  }
+
+  .menu {
+  grid-column-gap: 24px;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-areas: 
+  "nav nav nav"
+  "photo photo photo"
+  "handbag watch shoes";
+  }
+
+  .menu > img {
+  margin-bottom: 1.5rem;
+  }
+
+  .handbag, .watch, .shoes {
+    padding: 80px 20px 0px;
+  }
+
+  main {
+    padding: 3rem 1.5rem 1.5rem;
+  }
+
+  .catalog {
+    display: grid;
+    gap: 24px;
+    grid-template-columns: repeat(4, 1fr);
+  }
+
+  .card {
+    font-size: 1rem;
+  }
+
+  .info {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  div.info > div:not(.info-phone) {
+    display: block;
+  }
+
+  .info-phone {
+    margin: 1rem 0rem;
+    border-left: 1px solid lightgrey;
+    border-right: 1px solid lightgrey;
+  }
+
+  footer:not(.copyright) {
+    padding: 1.5rem;
+  }
+
+  footer .navbar-nav > h4 {
+    display: block;
+  }
+  footer .navbar-brand {
+    display: none;
+  }
+
+  footer .container-fluid {
+    padding-left: 0px;
+    padding-right: 0px;
+  }
+
+  footer .navbar-expand-lg .navbar-nav .nav-link {
+    padding-left: 0px;
+  }
+
+  footer .navbar {
+    flex-direction: column;
+  }
+
+  footer .navbar-expand-lg .navbar-nav {
+    flex-direction: column;
+    flex-grow: 1;
+  }
+
+  footer:not(.copyright) {
+    display: grid;
+    grid-column-gap: 24px;
+    grid-template-columns: repeat(4, 1fr);
+  }
+
+  footer.copyright {
+    padding: 1rem 1.5rem;
+  }
+
+  footer.copyright > p {
+    padding: 0px;
+    font-size: 1rem;
+  }
 
 }
 
